@@ -8,7 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
+        this.search = "";
     }
+    AppComponent.prototype.onClear = function () {
+        this.search = "";
+    };
+    AppComponent.prototype.onSubmit = function () {
+        alert("You searched for " + this.search + "!");
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
