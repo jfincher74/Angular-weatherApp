@@ -1,19 +1,25 @@
-<div class="page-header app-header">
-    <h1>Jay Fincher -- <small>Detroit Labs Sample App</small></h1>
-</div>
-<div class="row">
-    <div class="col-md-9">
-        <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation"><a href="#">Current Weather</a></li>
-            <li role="presentation"><a href="#">5-Day Forecast</a></li>
-        </ul>
+<div class="container">
+    <div class="page-header app-header">
+        <h1>Jay Fincher -- <small>Detroit Labs Sample App</small></h1>
     </div>
-    <div class="col-md-3">
-        <input [(ngModel)]="search" type="text" placeholder="Enter your zip" name="search">
-        <button (click)="onSubmit()" type="button" class="btn btn-primary">Search</button>
-        <button (click)="onClear()" type="button" class="btn btn-default">Clear</button>
+    <div class="row">
+        <div class="col-md-8">
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="#">Home</a></li>
+                <li role="presentation"><a href="#">Current Weather</a></li>
+                <li role="presentation"><a href="#">5-Day Forecast</a></li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <input [(ngModel)]="search" type="number" maxlength="5" placeholder="Enter your zip" name="search">
+            <button (click)="onSubmit()" type="button" class="btn btn-primary">Search</button>
+            <button (click)="onClear()" type="button" class="btn btn-default">Clear</button>
+        </div>
+    </div>
+    <div class="jumbotron">
+        <h1>Hello, world!</h1>
+        <p>How to use: blah blah blah</p>
+        <p> {{search}} </p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Let's Go!</a></p>
     </div>
 </div>
-
-<h1> {{search}}</h1>

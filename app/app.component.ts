@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: 'app.component.html'
 })
 export class AppComponent { 
+  isInvalid:boolean = true;
   search:string = "";
 
   onClear(){
@@ -13,6 +14,11 @@ export class AppComponent {
   }
 
   onSubmit(){
+    debugger
+    if(this.search.length < 5){
+      alert('Please enter a 5 Digit Zip Code')
+    } else {
     alert(`You searched for ${this.search}!`)
+    }
   }
 }

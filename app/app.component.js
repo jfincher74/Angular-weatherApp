@@ -8,13 +8,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
+        this.isInvalid = true;
         this.search = "";
     }
     AppComponent.prototype.onClear = function () {
         this.search = "";
     };
     AppComponent.prototype.onSubmit = function () {
-        alert("You searched for " + this.search + "!");
+        debugger;
+        if (this.search.length < 5) {
+            alert('Please enter a 5 Digit Zip Code');
+        }
+        else {
+            alert("You searched for " + this.search + "!");
+        }
     };
     return AppComponent;
 }());
