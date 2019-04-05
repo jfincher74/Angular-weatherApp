@@ -6,29 +6,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
-        this.search = null;
+var ForecastComponent = (function () {
+    function ForecastComponent() {
     }
-    AppComponent.prototype.onClear = function () {
-        this.search = null;
-    };
-    AppComponent.prototype.onSubmit = function () {
-        if (this.search < 10000 || this.search > 99999) {
-            alert('Please enter a 5 Digit Zip Code');
-        }
-        else {
-            alert("You searched for " + this.search + "!");
-        }
-    };
-    return AppComponent;
+    return ForecastComponent;
 }());
-AppComponent = __decorate([
+ForecastComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        selector: 'my-app',
-        templateUrl: 'app.component.html'
+        selector: 'current',
+        templateUrl: 'forecast.component.html'
     })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], ForecastComponent);
+exports.ForecastComponent = ForecastComponent;
+//# sourceMappingURL=forecast.component.js.map

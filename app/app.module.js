@@ -1,3 +1,4 @@
+/* Angular Specific */
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7,8 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
-var app_component_1 = require("./app.component");
 var forms_1 = require("@angular/forms");
+var router_1 = require("@angular/router");
+/* My Components */
+var app_component_1 = require("./app.component");
+var home_component_1 = require("./components/home/home.component");
+var currentWeather_component_1 = require("./components/CurrentWeather/currentWeather.component");
+var forecast_component_1 = require("./components/forecast/forecast.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -17,8 +23,19 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule,
-            forms_1.FormsModule],
-        declarations: [app_component_1.AppComponent],
+            forms_1.FormsModule,
+            router_1.RouterModule.forRoot([
+                { path: 'home', component: home_component_1.HomeComponent },
+                { path: 'current', component: currentWeather_component_1.CurrentWeatherComponent },
+                { path: 'forecast', component: forecast_component_1.ForecastComponent },
+                { path: '', component: home_component_1.HomeComponent },
+                { path: "**", component: home_component_1.HomeComponent }
+            ])
+        ],
+        declarations: [app_component_1.AppComponent,
+            home_component_1.HomeComponent,
+            currentWeather_component_1.CurrentWeatherComponent,
+            forecast_component_1.ForecastComponent],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
