@@ -6,19 +6,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-// import { WeatherService } from './services/weather.service';
+var weather_service_1 = require("./services/weather.service");
 var AppComponent = (function () {
     function AppComponent() {
-        // constructor (private _httpService: WeatherService){}
         this.search = null;
-        // getWeather(){
-        //   this._httpService.getWeather()
-        //     .subscribe(
-        //       data => this.getData = JSON.stringify(data),
-        //       error => alert(error),
-        //        () => console.log("Finished")
-        //     );
-        // }
     }
     AppComponent.prototype.onClear = function () {
         this.search = null;
@@ -38,6 +29,7 @@ AppComponent = __decorate([
         moduleId: module.id,
         selector: 'my-app',
         templateUrl: 'app.component.html',
+        providers: [weather_service_1.WeatherService]
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

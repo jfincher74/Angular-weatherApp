@@ -1,12 +1,13 @@
-<div class="jumbotron"
-        *ngFor="let weather of weather; let i=index">
-    <h1>Current Weather in <small> {{weather.cityName}} </small></h1>
+<div class="jumbotron" >
+    <h1>Current Weather in <small> {{weather.name}} </small></h1>
     <div class="row">
         <span>
-            <h2>{{weather.condition}}</h2>
+            <h2>The conditions are: {{weather.weather[0].main}}</h2>
         </span>
         <span>
-            <h2>{{weather.temperature}}</h2>
+            <h2>Current Temperature: {{weather.main.temp | number:'1.0-0'}}</h2>
+            <h2>High: {{ weather.main.temp_max | number:'1.0-0'}}</h2>
+            <h2>Low: {{ weather.main.temp_min | number:'1.0-0'}}</h2>
         </span>
     </div>
 </div>
