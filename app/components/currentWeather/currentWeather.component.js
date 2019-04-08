@@ -5,10 +5,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 var core_1 = require("@angular/core");
+var weather_service_1 = require("../../services/weather.service");
 var CurrentWeatherComponent = (function () {
-    function CurrentWeatherComponent() {
+    function CurrentWeatherComponent(_weatherService) {
+        this._weatherService = _weatherService;
     }
+    CurrentWeatherComponent.prototype.ngOnInit = function () { this.getWeather(); };
+    CurrentWeatherComponent.prototype.getWeather = function () {
+        var _this = this;
+        this._weatherService.getWeather()
+            .subscribe(function (weather) { return _this.weather = weather; }, function (error) { return _this.errorMessage = error; });
+        console.log(this.weather);
+    };
     return CurrentWeatherComponent;
 }());
 CurrentWeatherComponent = __decorate([
@@ -16,7 +28,8 @@ CurrentWeatherComponent = __decorate([
         moduleId: module.id,
         selector: 'current',
         templateUrl: 'currentWeather.component.html'
-    })
+    }),
+    __metadata("design:paramtypes", [weather_service_1.WeatherService])
 ], CurrentWeatherComponent);
 exports.CurrentWeatherComponent = CurrentWeatherComponent;
 //# sourceMappingURL=currentWeather.component.js.map
