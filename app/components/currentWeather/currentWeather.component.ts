@@ -20,7 +20,6 @@ export class CurrentWeatherComponent implements OnInit {
     this._weatherService.getWeather()
     .subscribe(weather => this.weather = weather,
       error => this.errorMessage = <any>error);
-    console.log(this.weather)
   }
   
 }

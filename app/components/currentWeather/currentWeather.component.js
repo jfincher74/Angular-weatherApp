@@ -19,7 +19,6 @@ var CurrentWeatherComponent = (function () {
         var _this = this;
         this._weatherService.getWeather()
             .subscribe(function (weather) { return _this.weather = weather; }, function (error) { return _this.errorMessage = error; });
-        console.log(this.weather);
     };
     return CurrentWeatherComponent;
 }());
