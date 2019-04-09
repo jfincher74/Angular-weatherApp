@@ -1,26 +1,29 @@
 import { Component } from '@angular/core';
 import { WeatherService } from './services/weather.service';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   moduleId: module.id,
   selector: 'my-app',
   templateUrl: 'app.component.html',
-  providers: [ WeatherService ]
+  providers: [ WeatherService ],
+  
 })
 export class AppComponent { 
-  search:number = null;
+  searchZip:number = null;
+  weather:any;
+  errorMessage:string;
+  
+  constructor (private _weatherService: WeatherService) {}  
 
   onClear(){
-    this.search = null
+    this.searchZip = null
   }
 
-  onSubmit(){
-    if(this.search < 10000 || this.search > 99999){
-      alert('Please enter a 5 Digit Zip Code');
-      // this.getWeather();
-    } else {
-      alert(`You searched for ${this.search}!`)
-    }
+  onSubmit(searchZip:number){
+    console.log(searchZip.value.zip);
+    this._weatherService.getWeather(searchZip.value.zip)
+      .subscribe()
   }
 }

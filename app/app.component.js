@@ -5,22 +5,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 var core_1 = require("@angular/core");
 var weather_service_1 = require("./services/weather.service");
 var AppComponent = (function () {
-    function AppComponent() {
-        this.search = null;
+    function AppComponent(_weatherService) {
+        this._weatherService = _weatherService;
+        this.searchZip = null;
     }
     AppComponent.prototype.onClear = function () {
-        this.search = null;
+        this.searchZip = null;
     };
-    AppComponent.prototype.onSubmit = function () {
-        if (this.search < 10000 || this.search > 99999) {
-            alert('Please enter a 5 Digit Zip Code');
-        }
-        else {
-            alert("You searched for " + this.search + "!");
-        }
+    AppComponent.prototype.onSubmit = function (searchZip) {
+        console.log(searchZip.value.zip);
+        this._weatherService.getWeather(searchZip.value.zip)
+            .subscribe();
     };
     return AppComponent;
 }());
@@ -29,8 +30,9 @@ AppComponent = __decorate([
         moduleId: module.id,
         selector: 'my-app',
         templateUrl: 'app.component.html',
-        providers: [weather_service_1.WeatherService]
-    })
+        providers: [weather_service_1.WeatherService],
+    }),
+    __metadata("design:paramtypes", [weather_service_1.WeatherService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

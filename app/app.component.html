@@ -11,13 +11,13 @@
             </ul>
         </div>
         <div class="col-md-4">
-            <input [(ngModel)]="search" type="number"  placeholder="Enter your zip" name="search">
-            <button (click)="onSubmit()" type="button" class="btn btn-primary">Search</button>
-            <button (click)="onClear()" type="button" class="btn btn-default">Clear</button>
+            <form #searchZip="ngForm" (ngSubmit)="onSubmit(searchZip)">
+                <input ngModel type="number" placeholder="Enter your zip" name="zip">
+                <button  type="submit" class="btn btn-primary">Search</button>
+            </form>
         </div>
     </div>
 </div>
 <div class="container">
     <router-outlet></router-outlet>
-    <p> {{search}} </p>
 </div>

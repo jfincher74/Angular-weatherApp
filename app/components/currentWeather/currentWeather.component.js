@@ -14,11 +14,8 @@ var CurrentWeatherComponent = (function () {
     function CurrentWeatherComponent(_weatherService) {
         this._weatherService = _weatherService;
     }
-    CurrentWeatherComponent.prototype.ngOnInit = function () { this.getWeather(); };
-    CurrentWeatherComponent.prototype.getWeather = function () {
-        var _this = this;
-        this._weatherService.getWeather()
-            .subscribe(function (weather) { return _this.weather = weather; }, function (error) { return _this.errorMessage = error; });
+    CurrentWeatherComponent.prototype.ngOnInit = function () {
+        // this.weatherItems = this._weatherService.getWeather(zip:Number);
     };
     return CurrentWeatherComponent;
 }());
@@ -26,7 +23,8 @@ CurrentWeatherComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'current',
-        templateUrl: 'currentWeather.component.html'
+        templateUrl: 'currentWeather.component.html',
+        providers: [weather_service_1.WeatherService]
     }),
     __metadata("design:paramtypes", [weather_service_1.WeatherService])
 ], CurrentWeatherComponent);
