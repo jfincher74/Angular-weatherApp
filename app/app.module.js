@@ -17,6 +17,7 @@ var home_component_1 = require("./components/home/home.component");
 var currentWeather_component_1 = require("./components/CurrentWeather/currentWeather.component");
 var forecast_component_1 = require("./components/forecast/forecast.component");
 var weather_service_1 = require("./services/weather.service");
+var weatherDataSharing_service_1 = require("./services/weatherDataSharing.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -33,9 +34,10 @@ AppModule = __decorate([
                 { path: 'forecast', component: forecast_component_1.ForecastComponent },
                 { path: '', component: home_component_1.HomeComponent },
                 { path: "**", component: home_component_1.HomeComponent }
-            ])
+            ]),
         ],
-        providers: [weather_service_1.WeatherService],
+        providers: [weather_service_1.WeatherService,
+            weatherDataSharing_service_1.WeatherDataSharingService],
         declarations: [app_component_1.AppComponent,
             home_component_1.HomeComponent,
             currentWeather_component_1.CurrentWeatherComponent,

@@ -9,13 +9,8 @@ export class WeatherService {
     constructor(private _http: Http) {}
 
     getWeather(searchZip:number): Observable<any> {
-        this.getZip(searchZip);
         return this._http
         .get(`http://api.openweathermap.org/data/2.5/weather?zip=`+searchZip+`,us&units=imperial&APPID=46c9391d252f7c41da1198a25720650a`)
         .map((response:Response) => response.json())        
-    }
-
-    getZip(searchZip:any){
-        console.log(searchZip)
-    }
+    };
 }

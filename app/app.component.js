@@ -10,18 +10,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var weather_service_1 = require("./services/weather.service");
+var weatherDataSharing_service_1 = require("./services/weatherDataSharing.service");
 var AppComponent = (function () {
-    function AppComponent(_weatherService) {
+    function AppComponent(_weatherService, _weatherDataSharing) {
         this._weatherService = _weatherService;
+        this._weatherDataSharing = _weatherDataSharing;
         this.searchZip = null;
     }
-    AppComponent.prototype.onClear = function () {
-        this.searchZip = null;
-    };
+    ;
     AppComponent.prototype.onSubmit = function (searchZip) {
-        console.log(searchZip.value.zip);
+        var _this = this;
+        var weather;
         this._weatherService.getWeather(searchZip.value.zip)
-            .subscribe();
+            .subscribe(function (data) {
+            weather = data;
+            _this.weatherData = weather;
+            _this.passData();
+        });
+    };
+    ;
+    AppComponent.prototype.passData = function () {
+        this._weatherDataSharing.getData(this.weatherData);
     };
     return AppComponent;
 }());
@@ -30,9 +39,10 @@ AppComponent = __decorate([
         moduleId: module.id,
         selector: 'my-app',
         templateUrl: 'app.component.html',
-        providers: [weather_service_1.WeatherService],
+        providers: [weather_service_1.WeatherService]
     }),
-    __metadata("design:paramtypes", [weather_service_1.WeatherService])
+    __metadata("design:paramtypes", [weather_service_1.WeatherService,
+        weatherDataSharing_service_1.WeatherDataSharingService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

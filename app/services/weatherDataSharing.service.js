@@ -8,24 +8,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var http_1 = require("@angular/http");
 var core_1 = require("@angular/core");
-require("rxjs/add/operator/map");
-var WeatherService = (function () {
-    function WeatherService(_http) {
-        this._http = _http;
+// import { BehaviorSubject } from 'rxjs/BehaviorSubject'
+// import { Observable } from 'rxjs/Observable'
+var WeatherDataSharingService = (function () {
+    function WeatherDataSharingService() {
+        this.weatherData = new Array([]);
     }
-    WeatherService.prototype.getWeather = function (searchZip) {
-        return this._http
-            .get("http://api.openweathermap.org/data/2.5/weather?zip=" + searchZip + ",us&units=imperial&APPID=46c9391d252f7c41da1198a25720650a")
-            .map(function (response) { return response.json(); });
+    WeatherDataSharingService.prototype.getData = function (weatherData) {
+        // console.log(weatherData);
+        this.weatherData = weatherData;
+        this.checkResults();
     };
     ;
-    return WeatherService;
+    WeatherDataSharingService.prototype.checkResults = function () {
+        console.log(this.weatherData);
+    };
+    return WeatherDataSharingService;
 }());
-WeatherService = __decorate([
+WeatherDataSharingService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], WeatherService);
-exports.WeatherService = WeatherService;
-//# sourceMappingURL=weather.service.js.map
+    __metadata("design:paramtypes", [])
+], WeatherDataSharingService);
+exports.WeatherDataSharingService = WeatherDataSharingService;
+//# sourceMappingURL=weatherDataSharing.service.js.map
