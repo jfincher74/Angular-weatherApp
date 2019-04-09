@@ -1,6 +1,5 @@
 import { Component  } from '@angular/core';
 import { WeatherService } from './services/weather.service';
-import { WeatherDataSharingService } from './services/weatherDataSharing.service';
 
 @Component({
   moduleId: module.id,
@@ -14,21 +13,25 @@ export class AppComponent {
   weatherData:any;
   searchZip:number = null;
   
-  constructor (private _weatherService: WeatherService, 
-    private _weatherDataSharing: WeatherDataSharingService) {};
+  constructor (
+    private _weatherService: WeatherService){};
 
-  onSubmit(searchZip:number){
+
+  // onSubmit(searchZip:number){
+  //   let weather;
+  //   this._weatherService.getWeather(searchZip)
+  //     .subscribe(data => {
+  //       weather = data;
+  //       this.weatherData = weather;
+  //   });
+  // };
+
+  onSubmit(){
     let weather;
-    this._weatherService.getWeather(searchZip.value.zip)
+    this._weatherService.getWeather()
       .subscribe(data => {
         weather = data;
         this.weatherData = weather;
-        this.passData();
     });
   };
-
-  passData(){
-    this._weatherDataSharing.getData(this.weatherData);
-
-  }
 }

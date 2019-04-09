@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import { WeatherDataSharingService } from '../../services/weatherDataSharing.service'
+import { WeatherService } from '../../services/weather.service';
 
 
 
@@ -7,20 +7,23 @@ import { WeatherDataSharingService } from '../../services/weatherDataSharing.ser
   moduleId: module.id,
   selector: 'current',
   templateUrl: 'currentWeather.component.html',
-  providers: [ WeatherDataSharingService ]
+  providers: [ WeatherService]
 })
 
 export class CurrentWeatherComponent implements OnInit {
-  weatherData = Array([]);
+  weather = Array([]);
+  errorMessage = "Whoops"
   
-constructor (private _weatherDataSharing: WeatherDataSharingService) {}
+  
+constructor (private _weatherService: WeatherService) {}
 
   ngOnInit() { 
-    this.getWeatherData();
+    this.getWeather();
   }
 
-  getWeatherData(){
-      let data = this._weatherDataSharing.getData(this.weatherData)
-      console.log(data);
+  getWeather(){ 
+    this._weatherService.getWeather()
+    .subscribe(weather => this.weather = weather,
+      error => this.errorMessage = <any>error);
   }
-}
+};

@@ -9,18 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var weatherDataSharing_service_1 = require("../../services/weatherDataSharing.service");
+var weather_service_1 = require("../../services/weather.service");
 var CurrentWeatherComponent = (function () {
-    function CurrentWeatherComponent(_weatherDataSharing) {
-        this._weatherDataSharing = _weatherDataSharing;
-        this.weatherData = Array([]);
+    function CurrentWeatherComponent(_weatherService) {
+        this._weatherService = _weatherService;
+        this.weather = Array([]);
+        this.errorMessage = "Whoops";
     }
     CurrentWeatherComponent.prototype.ngOnInit = function () {
-        this.getWeatherData();
+        this.getWeather();
     };
-    CurrentWeatherComponent.prototype.getWeatherData = function () {
-        var data = this._weatherDataSharing.getData(this.weatherData);
-        console.log(data);
+    CurrentWeatherComponent.prototype.getWeather = function () {
+        var _this = this;
+        this._weatherService.getWeather()
+            .subscribe(function (weather) { return _this.weather = weather; }, function (error) { return _this.errorMessage = error; });
     };
     return CurrentWeatherComponent;
 }());
@@ -29,9 +31,10 @@ CurrentWeatherComponent = __decorate([
         moduleId: module.id,
         selector: 'current',
         templateUrl: 'currentWeather.component.html',
-        providers: [weatherDataSharing_service_1.WeatherDataSharingService]
+        providers: [weather_service_1.WeatherService]
     }),
-    __metadata("design:paramtypes", [weatherDataSharing_service_1.WeatherDataSharingService])
+    __metadata("design:paramtypes", [weather_service_1.WeatherService])
 ], CurrentWeatherComponent);
 exports.CurrentWeatherComponent = CurrentWeatherComponent;
+;
 //# sourceMappingURL=currentWeather.component.js.map

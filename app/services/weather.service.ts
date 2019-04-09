@@ -8,9 +8,16 @@ export class WeatherService {
 
     constructor(private _http: Http) {}
 
-    getWeather(searchZip:number): Observable<any> {
+    // getWeather(searchZip:number): Observable<any> {
+    //     return this._http
+    //     .get(`http://api.openweathermap.org/data/2.5/weather?zip=`+searchZip+`,us&units=imperial&APPID=46c9391d252f7c41da1198a25720650a`)
+    //         .map((response:Response) => response.json())        
+    // };
+
+    getWeather(): Observable<any> {
         return this._http
-        .get(`http://api.openweathermap.org/data/2.5/weather?zip=`+searchZip+`,us&units=imperial&APPID=46c9391d252f7c41da1198a25720650a`)
+        // .get(`http://api.openweathermap.org/data/2.5/weather?zip=`+searchZip+`,us&units=imperial&APPID=46c9391d252f7c41da1198a25720650a`)
+        .get(`http://api.openweathermap.org/data/2.5/weather?zip=48225,us&units=imperial&APPID=46c9391d252f7c41da1198a25720650a`)
         .map((response:Response) => response.json())        
     };
 }
