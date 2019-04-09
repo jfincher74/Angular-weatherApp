@@ -1,8 +1,8 @@
 <div class="jumbotron" >
-    <h1>Current Weather in <small> {{weather.name}} </small></h1>
+    <h1>Current Weather in <small> {{weather.name}} </small><img src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png"></h1>
     <div class="row">
         <span>
-            <h2>The conditions are: {{weather.weather[0].main}}</h2>
+            <h2>{{weather.weather[0].description}}</h2>
         </span>
         <span>
             <h2>Current Temperature: {{weather.main.temp | number:'1.0-0'}}</h2>
