@@ -3,19 +3,20 @@
         <h1>Jay Fincher -- <small>Detroit Labs Sample App</small></h1>
     </div>
     <div class="row">
-        <div class="col-md-8">
-            <ul class="nav nav-tabs">
-                <li role="presentation"><a [routerLink]="['/home']">Home</a></li>
-                <li role="presentation"><a [routerLink]="['/current']">Current Weather</a></li>
-                <li role="presentation"><a [routerLink]="['/forecast']">5-Day Forecast</a></li>
-            </ul>
-        </div>
-        <div class="col-md-4">
-            <form #searchZip="ngForm" (ngSubmit)="onSubmit(searchZip)">
-                <input ngModel type="number" placeholder="Enter your zip" name="zip">
-                <button  type="submit" class="btn btn-primary" [routerLink]="['/current']">Search</button>
+        <form (ngSubmit)="onSubmit(zip)">
+                <div class="col-md-9">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation"><a [routerLink]="['/home']">Home</a></li>
+                        <li role="presentation"><a (click)="onSubmit(zip)" [routerLink]="['/current']">Current Weather</a></li>
+                        <li role="presentation"><a  (click)="onSubmit(zip)" [routerLink]="['/forecast']">5-Day Forecast</a></li>
+                    </ul>  
+                </div>
+                <div class="col-md-3">
+                    <input ngModel (input)='zip=$event.target.value' type="number" placeholder="Enter your zip" name="zip">
+                    <button (click)="onSubmit(zip)" [routerLink]="['/current']" class="btn btn-primary">Search</button>
+                </div>
             </form>
-        </div>
+            {{zip}}
     </div>
 </div>
 <div class="container">

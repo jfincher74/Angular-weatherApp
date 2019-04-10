@@ -1,6 +1,6 @@
 /* Angular Specific */
 
-import { NgModule, Pipe }      from '@angular/core';
+import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router';
@@ -13,8 +13,6 @@ import { HomeComponent }   from './components/home/home.component';
 import { CurrentWeatherComponent }   from './components/CurrentWeather/currentWeather.component';
 import { ForecastComponent }  from './components/forecast/forecast.component';
 import { WeatherService } from './services/weather.service';
-import { WeatherDataSharingService } from './services/weatherDataSharing.service';
-
 
 @NgModule({
   imports:      [ BrowserModule,
@@ -30,8 +28,7 @@ import { WeatherDataSharingService } from './services/weatherDataSharing.service
                   ]),
                   
                 ],
-  providers: [ WeatherService,
-                WeatherDataSharingService],
+  providers: [ WeatherService ],
   declarations: [ AppComponent,
                   HomeComponent,
                   CurrentWeatherComponent,

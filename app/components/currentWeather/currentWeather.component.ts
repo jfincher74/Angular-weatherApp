@@ -1,26 +1,26 @@
 import { Component,OnInit } from '@angular/core';
-import { WeatherDataSharingService } from '../../services/weatherDataSharing.service'
-
-
+import { WeatherService } from '../../services/weather.service';
 
 @Component({
   moduleId: module.id,
   selector: 'current',
   templateUrl: 'currentWeather.component.html',
-  providers: [ WeatherDataSharingService ]
+  providers: [ WeatherService ]
 })
 
 export class CurrentWeatherComponent implements OnInit {
-  weatherData = Array([]);
+  weather = Array([]);
+  errorMessage = "Whoops"  
   
-constructor (private _weatherDataSharing: WeatherDataSharingService) {}
+constructor (private _weatherService: WeatherService) {}
 
-  ngOnInit() { 
-    this.getWeatherData();
+  ngOnInit() {
+    this.getWeather(zipCode);
   }
 
-  getWeatherData(){
-      let data = this._weatherDataSharing.getData(this.weatherData)
-      console.log(data);
+  getWeather(zipCode:any){ 
+    this._weatherService.getWeather(zipCode)
+    .subscribe(weather => this.weather = weather,
+      error => this.errorMessage = <any>error);
   }
-}
+};

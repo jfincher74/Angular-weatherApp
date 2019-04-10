@@ -9,29 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var weather_service_1 = require("./services/weather.service");
-var weatherDataSharing_service_1 = require("./services/weatherDataSharing.service");
+var currentWeather_component_1 = require("./components/CurrentWeather/currentWeather.component");
 var AppComponent = (function () {
-    function AppComponent(_weatherService, _weatherDataSharing) {
-        this._weatherService = _weatherService;
-        this._weatherDataSharing = _weatherDataSharing;
-        this.searchZip = null;
+    function AppComponent(currentWeather) {
+        this.currentWeather = currentWeather;
     }
     ;
-    AppComponent.prototype.onSubmit = function (searchZip) {
-        var _this = this;
-        var weather;
-        this._weatherService.getWeather(searchZip.value.zip)
-            .subscribe(function (data) {
-            weather = data;
-            _this.weatherData = weather;
-            _this.passData();
-        });
+    AppComponent.prototype.onSubmit = function () {
+        var zipCode = this.zip;
+        console.log(zipCode);
+        this.currentWeather.getWeather(zipCode);
     };
     ;
-    AppComponent.prototype.passData = function () {
-        this._weatherDataSharing.getData(this.weatherData);
-    };
     return AppComponent;
 }());
 AppComponent = __decorate([
@@ -39,10 +28,9 @@ AppComponent = __decorate([
         moduleId: module.id,
         selector: 'my-app',
         templateUrl: 'app.component.html',
-        providers: [weather_service_1.WeatherService]
+        providers: [currentWeather_component_1.CurrentWeatherComponent]
     }),
-    __metadata("design:paramtypes", [weather_service_1.WeatherService,
-        weatherDataSharing_service_1.WeatherDataSharingService])
+    __metadata("design:paramtypes", [currentWeather_component_1.CurrentWeatherComponent])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

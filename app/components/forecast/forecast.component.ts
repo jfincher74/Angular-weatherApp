@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { WeatherDataSharingService } from '../../services/weatherDataSharing.service'
 
 @Component({
   moduleId: module.id,
@@ -9,12 +8,5 @@ import { WeatherDataSharingService } from '../../services/weatherDataSharing.ser
 
 export class ForecastComponent {
 
-  weatherData:any; 
-  
-  constructor(private data:WeatherDataSharingService) {}
-
-  ngOnInit(){
-    this.data.data.subscribe(weatherData => this.weatherData = weatherData)
-  }
 
 }
