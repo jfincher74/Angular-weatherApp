@@ -17,11 +17,11 @@ var CurrentWeatherComponent = (function () {
         this.errorMessage = "Whoops";
     }
     CurrentWeatherComponent.prototype.ngOnInit = function () {
-        this.getWeather();
+        this.getWeather(zipCode);
     };
-    CurrentWeatherComponent.prototype.getWeather = function () {
+    CurrentWeatherComponent.prototype.getWeather = function (zipCode) {
         var _this = this;
-        this._weatherService.getWeather()
+        this._weatherService.getWeather(zipCode)
             .subscribe(function (weather) { return _this.weather = weather; }, function (error) { return _this.errorMessage = error; });
     };
     return CurrentWeatherComponent;

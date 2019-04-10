@@ -1,37 +1,23 @@
-import { Component  } from '@angular/core';
-import { WeatherService } from './services/weather.service';
+import { Component } from '@angular/core';
+import { CurrentWeatherComponent } from './components/CurrentWeather/currentWeather.component';
 
 @Component({
   moduleId: module.id,
   selector: 'my-app',
   templateUrl: 'app.component.html',
-  providers: [ WeatherService ]
+  providers: [ CurrentWeatherComponent ]
   
 })
 export class AppComponent {
-  
-  weatherData:any;
-  searchZip:number = null;
+  zip:number;
   
   constructor (
-    private _weatherService: WeatherService){};
+    private currentWeather:CurrentWeatherComponent){};
 
-
-  // onSubmit(searchZip:number){
-  //   let weather;
-  //   this._weatherService.getWeather(searchZip)
-  //     .subscribe(data => {
-  //       weather = data;
-  //       this.weatherData = weather;
-  //   });
-  // };
-
+// TODO : Figure out how to pass "zip" into currentWeather.component and then weather.service
   onSubmit(){
-    let weather;
-    this._weatherService.getWeather()
-      .subscribe(data => {
-        weather = data;
-        this.weatherData = weather;
-    });
+    let zipCode = this.zip;
+    console.log(zipCode)
+    this.currentWeather.getWeather(zipCode);
   };
 }

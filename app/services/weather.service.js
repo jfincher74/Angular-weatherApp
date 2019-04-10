@@ -15,12 +15,8 @@ var WeatherService = (function () {
     function WeatherService(_http) {
         this._http = _http;
     }
-    // getWeather(searchZip:number): Observable<any> {
-    //     return this._http
-    //     .get(`http://api.openweathermap.org/data/2.5/weather?zip=`+searchZip+`,us&units=imperial&APPID=46c9391d252f7c41da1198a25720650a`)
-    //         .map((response:Response) => response.json())        
-    // };
-    WeatherService.prototype.getWeather = function () {
+    WeatherService.prototype.getWeather = function (zipCode) {
+        console.log(zipCode);
         return this._http
             .get("http://api.openweathermap.org/data/2.5/weather?zip=48225,us&units=imperial&APPID=46c9391d252f7c41da1198a25720650a")
             .map(function (response) { return response.json(); });

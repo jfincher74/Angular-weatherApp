@@ -9,29 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var weather_service_1 = require("./services/weather.service");
+var currentWeather_component_1 = require("./components/CurrentWeather/currentWeather.component");
 var AppComponent = (function () {
-    function AppComponent(_weatherService) {
-        this._weatherService = _weatherService;
-        this.searchZip = null;
+    function AppComponent(currentWeather) {
+        this.currentWeather = currentWeather;
     }
     ;
-    // onSubmit(searchZip:number){
-    //   let weather;
-    //   this._weatherService.getWeather(searchZip)
-    //     .subscribe(data => {
-    //       weather = data;
-    //       this.weatherData = weather;
-    //   });
-    // };
+    // TODO : Figure out how to pass "zip" into currentWeather.component and then weather.service
     AppComponent.prototype.onSubmit = function () {
-        var _this = this;
-        var weather;
-        this._weatherService.getWeather()
-            .subscribe(function (data) {
-            weather = data;
-            _this.weatherData = weather;
-        });
+        var zipCode = this.zip;
+        console.log(zipCode);
+        this.currentWeather.getWeather(zipCode);
     };
     ;
     return AppComponent;
@@ -41,9 +29,9 @@ AppComponent = __decorate([
         moduleId: module.id,
         selector: 'my-app',
         templateUrl: 'app.component.html',
-        providers: [weather_service_1.WeatherService]
+        providers: [currentWeather_component_1.CurrentWeatherComponent]
     }),
-    __metadata("design:paramtypes", [weather_service_1.WeatherService])
+    __metadata("design:paramtypes", [currentWeather_component_1.CurrentWeatherComponent])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map
