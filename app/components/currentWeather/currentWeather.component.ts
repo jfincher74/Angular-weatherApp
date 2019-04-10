@@ -15,11 +15,11 @@ export class CurrentWeatherComponent implements OnInit {
 constructor (private _weatherService: WeatherService) {}
 
   ngOnInit() {
-    this.getWeather(zipCode);
+    this.getWeather();
   }
 
-  getWeather(zipCode:any){ 
-    this._weatherService.getWeather(zipCode)
+  getWeather(){ 
+    this._weatherService.getWeather()
     .subscribe(weather => this.weather = weather,
       error => this.errorMessage = <any>error);
   }

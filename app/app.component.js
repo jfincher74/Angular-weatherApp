@@ -18,7 +18,7 @@ var AppComponent = (function () {
     AppComponent.prototype.onSubmit = function () {
         var zipCode = this.zip;
         console.log(zipCode);
-        this.currentWeather.getWeather(zipCode);
+        this.currentWeather.getWeather();
     };
     ;
     return AppComponent;

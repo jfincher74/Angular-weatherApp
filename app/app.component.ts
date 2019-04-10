@@ -17,6 +17,6 @@ export class AppComponent {
   onSubmit(){
     let zipCode = this.zip;
     console.log(zipCode)
-    this.currentWeather.getWeather(zipCode);
+    this.currentWeather.getWeather();
   };
 }

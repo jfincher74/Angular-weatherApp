@@ -15,8 +15,8 @@ var WeatherService = (function () {
     function WeatherService(_http) {
         this._http = _http;
     }
-    WeatherService.prototype.getWeather = function (zipCode) {
-        console.log(zipCode);
+    WeatherService.prototype.getWeather = function () {
+        console.log();
         return this._http
             .get("http://api.openweathermap.org/data/2.5/weather?zip=48225,us&units=imperial&APPID=46c9391d252f7c41da1198a25720650a")
             .map(function (response) { return response.json(); });

@@ -9,8 +9,8 @@ export class WeatherService {
 
     constructor(private _http: Http) {}
 
-    getWeather(zipCode:any): Observable<any> {
-        console.log(zipCode)
+    getWeather(): Observable<any> {
+        console.log()
         return this._http
         .get(`http://api.openweathermap.org/data/2.5/weather?zip=48225,us&units=imperial&APPID=46c9391d252f7c41da1198a25720650a`)
         .map((response:Response) => response.json())        
