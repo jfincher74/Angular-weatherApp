@@ -10,10 +10,17 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject'
 
 export class ForecastComponent {
 
+  constructor(private _weatherService: WeatherService){}
+
   isLoading:BehaviorSubject<boolean> = new BehaviorSubject(true);
+  weather:any;
 
   getForecast(){
-    this.isLoading.next(false)
+    this._weatherService.zipCode = this.zip;
+    this._weatherService.getForecast()
+      .then( () => {
+        this.weather = this._weatherService.weather
+    }).then( () => { this.isLoading.next(false)
+    })
   }
-
 }

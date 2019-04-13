@@ -1,12 +1,10 @@
-<div class="container">
-    <div class="page-header app-header">
-        <h1>Jay Fincher -- <small>Detroit Labs Sample App</small></h1>
-    </div>
-    <div class="col-md-9">
-        <ul class="nav nav-tabs">
-            <li role="presentation"><a [routerLink]="['/home']">Home</a></li>
-            <li role="presentation" ><a [routerLink]="['/current']" >Current Weather</a></li>
-            <li role="presentation"><a [routerLink]="['/forecast']">5-Day Forecast</a></li>
-        </ul>
-    </div> 
+<div class="page-header app-header">
+    <h1>Jay Fincher -- <small>Detroit Labs Sample App</small></h1>
 </div>
+<div class="col-md-9">
+    <ul class="nav nav-tabs">
+        <li role="presentation"><a [routerLink]="['/home']" >Home</a></li>
+        <li role="presentation" ><a [routerLink]="['/current']" (ngSubmit)="getWeather(zip)">Current Weather</a></li>
+        <li role="presentation"><a [routerLink]="['/forecast']" (ngSubmit)="getForecast(zip)">5-Day Forecast</a></li>
+    </ul>
+</div> 

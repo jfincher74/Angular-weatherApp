@@ -16,25 +16,6 @@ var CurrentWeatherComponent = (function () {
         this._weatherService = _weatherService;
         this.isLoading = new BehaviorSubject_1.BehaviorSubject(true);
     }
-    CurrentWeatherComponent.prototype.getWeather = function () {
-        var _this = this;
-        this._weatherService.zipCode = this.zip;
-        this._weatherService.getWeather()
-            .then(function () {
-            _this.name = _this._weatherService.weather[0].name;
-            _this.description = _this._weatherService.weather[0].weather[0].description;
-            _this.current = _this._weatherService.weather[0].main.temp;
-            _this.high = _this._weatherService.weather[0].main.temp_max;
-            _this.low = _this._weatherService.weather[0].main.temp_min;
-            _this.icon = _this._weatherService.weather[0].weather[0].icon;
-        }).then(function () {
-            console.log(_this.name, _this.description, _this.temp, _this.high, _this.low, _this.icon);
-        }).then(function () {
-            _this.isLoading.next(false);
-        }).then(function () {
-            console.log(_this._weatherService.weather);
-        });
-    };
     return CurrentWeatherComponent;
 }());
 CurrentWeatherComponent = __decorate([
@@ -47,5 +28,4 @@ CurrentWeatherComponent = __decorate([
     __metadata("design:paramtypes", [weather_service_1.WeatherService])
 ], CurrentWeatherComponent);
 exports.CurrentWeatherComponent = CurrentWeatherComponent;
-;
 //# sourceMappingURL=currentWeather.component.js.map
