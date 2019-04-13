@@ -16,6 +16,8 @@ export class ForecastComponent {
   weather:any;
   zip:number;
 
+  // *** TODO: Make zipcode persist by utilizing NG OnDestroy *** //
+
   getForecast(){
     this._weatherService.zipCode = this.zip;
     this._weatherService.getForecast()

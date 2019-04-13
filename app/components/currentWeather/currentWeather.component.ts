@@ -14,6 +14,8 @@ export class CurrentWeatherComponent {
   weather:any;
 
   isLoading:BehaviorSubject<boolean> = new BehaviorSubject(true);
+
+  // *** TODO: Make zipcode persist by utilizing NG OnDestroy *** //
   
 constructor (private _weatherService: WeatherService) {   }
 
