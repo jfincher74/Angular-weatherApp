@@ -14,6 +14,7 @@ export class ForecastComponent {
 
   isLoading:BehaviorSubject<boolean> = new BehaviorSubject(true);
   weather:any;
+  zip:number;
 
   getForecast(){
     this._weatherService.zipCode = this.zip;

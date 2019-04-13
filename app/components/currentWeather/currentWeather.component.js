@@ -16,6 +16,15 @@ var CurrentWeatherComponent = (function () {
         this._weatherService = _weatherService;
         this.isLoading = new BehaviorSubject_1.BehaviorSubject(true);
     }
+    CurrentWeatherComponent.prototype.getWeather = function () {
+        var _this = this;
+        this._weatherService.zipCode = this.zip;
+        this._weatherService.getWeather()
+            .then(function () {
+            return _this.weather = _this._weatherService.weather;
+        }).then(function () { return _this.isLoading.next(false); });
+    };
+    ;
     return CurrentWeatherComponent;
 }());
 CurrentWeatherComponent = __decorate([
