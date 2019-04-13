@@ -19,12 +19,21 @@ var WeatherService = (function () {
     WeatherService.prototype.getWeather = function () {
         var _this = this;
         var zipCode = this.zipCode;
-        console.log(zipCode);
         return this._http
             .get('http://api.openweathermap.org/data/2.5/weather?zip=' + zipCode + ',us&units=imperial&APPID=46c9391d252f7c41da1198a25720650a')
             .toPromise()
             .then(function (res) {
-            _this.weather = [res.json()];
+            _this.weather = res.json();
+        });
+    };
+    WeatherService.prototype.getForecast = function () {
+        var _this = this;
+        var zipCode = this.zipCode;
+        return this._http
+            .get('http://api.openweathermap.org/data/2.5/forecast?zip=' + zipCode + ',us&units=imperial&APPID=46c9391d252f7c41da1198a25720650a')
+            .toPromise()
+            .then(function (res) {
+            _this.weather = res.json();
         });
     };
     return WeatherService;
