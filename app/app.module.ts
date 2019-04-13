@@ -9,6 +9,7 @@ import { HttpModule } from '@angular/http';
 /* My Components */
 
 import { AppComponent }   from './app.component';
+import { AppNavComponent } from '../app/components/app-nav/app-nav.component'
 import { HomeComponent }   from './components/home/home.component';
 import { CurrentWeatherComponent }   from './components/CurrentWeather/currentWeather.component';
 import { ForecastComponent }  from './components/forecast/forecast.component';
@@ -18,7 +19,6 @@ import { WeatherService } from './services/weather.service';
   imports:      [ BrowserModule,
                   FormsModule,
                   HttpModule,
-                  
                   RouterModule.forRoot([
                     { path: 'home', component: HomeComponent },
                     { path: 'current', component: CurrentWeatherComponent },
@@ -32,7 +32,8 @@ import { WeatherService } from './services/weather.service';
   declarations: [ AppComponent,
                   HomeComponent,
                   CurrentWeatherComponent,
-                  ForecastComponent],
+                  ForecastComponent,
+                  AppNavComponent],
   bootstrap:    [ AppComponent ],
 })
 

@@ -10,18 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var http_1 = require("@angular/http");
 var core_1 = require("@angular/core");
+require("rxjs/add/operator/toPromise");
 require("rxjs/add/operator/map");
 var WeatherService = (function () {
     function WeatherService(_http) {
         this._http = _http;
     }
     WeatherService.prototype.getWeather = function () {
-        console.log();
+        var _this = this;
+        var zipCode = this.zipCode;
+        console.log(zipCode);
         return this._http
-            .get("http://api.openweathermap.org/data/2.5/weather?zip=48225,us&units=imperial&APPID=46c9391d252f7c41da1198a25720650a")
-            .map(function (response) { return response.json(); });
+            .get('http://api.openweathermap.org/data/2.5/weather?zip=' + zipCode + ',us&units=imperial&APPID=46c9391d252f7c41da1198a25720650a')
+            .toPromise()
+            .then(function (res) {
+            _this.weather = [res.json()];
+        });
     };
-    ;
     return WeatherService;
 }());
 WeatherService = __decorate([

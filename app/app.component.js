@@ -9,18 +9,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var currentWeather_component_1 = require("./components/CurrentWeather/currentWeather.component");
 var AppComponent = (function () {
-    function AppComponent(currentWeather) {
-        this.currentWeather = currentWeather;
+    function AppComponent() {
     }
-    ;
-    AppComponent.prototype.onSubmit = function () {
-        var zipCode = this.zip;
-        console.log(zipCode);
-        this.currentWeather.getWeather();
-    };
-    ;
     return AppComponent;
 }());
 AppComponent = __decorate([
@@ -28,9 +19,9 @@ AppComponent = __decorate([
         moduleId: module.id,
         selector: 'my-app',
         templateUrl: 'app.component.html',
-        providers: [currentWeather_component_1.CurrentWeatherComponent]
+        providers: []
     }),
-    __metadata("design:paramtypes", [currentWeather_component_1.CurrentWeatherComponent])
+    __metadata("design:paramtypes", [])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map
