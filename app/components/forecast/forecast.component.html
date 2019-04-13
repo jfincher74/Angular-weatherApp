@@ -1,11 +1,28 @@
-<div class="jumbotron">
-    <h1>Forecast for <small>City Name</small></h1>
-    <div class="row">
-        <span>
-            <h2>Weather</h2>
-        </span>
-        <span>
-            <h2>Temperature</h2>
-        </span>
+<div class="jumbotron" >
+        <div class="row">
+            <div class="col-md-9">
+            </div>
+            <form (ngSubmit)="getForecast(zip)">
+                <div class="col-md-3">
+                    <input ngModel (input)='zip=$event.target.value' type="number" placeholder="Enter your zip" name="zip">
+                    <button type="button" (click)="getForecast(zip)"  class="btn btn-primary" [routerLink]="['/current']">Search</button>
+                    {{zip}}
+                </div>
+            </form>
+            <div *ngIf="!isLoading.value" class="row">
+                <h1> {{ name }} <img src="http://openweathermap.org/img/w/{{icon}}.png"></h1>
+            <div class="row">
+                <span>
+                    <h2>{{ description }}</h2>
+                </span>
+                <span>
+                    <h2>Current Temperature: {{ current | number:'1.0-0'}}</h2>
+                    <h2>High: {{ high | number:'1.0-0'}}</h2>
+                    <h2>Low: {{ low | number:'1.0-0'}}</h2>
+                </span>
+            </div>
+        </div>
+        <div *ngIf="isLoading.value">
+            <h1>Enter a Zip Code</h1>
+        </div>
     </div>
-</div>

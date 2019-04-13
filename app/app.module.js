@@ -13,6 +13,7 @@ var router_1 = require("@angular/router");
 var http_1 = require("@angular/http");
 /* My Components */
 var app_component_1 = require("./app.component");
+var app_nav_component_1 = require("../app/components/app-nav/app-nav.component");
 var home_component_1 = require("./components/home/home.component");
 var currentWeather_component_1 = require("./components/CurrentWeather/currentWeather.component");
 var forecast_component_1 = require("./components/forecast/forecast.component");
@@ -39,7 +40,8 @@ AppModule = __decorate([
         declarations: [app_component_1.AppComponent,
             home_component_1.HomeComponent,
             currentWeather_component_1.CurrentWeatherComponent,
-            forecast_component_1.ForecastComponent],
+            forecast_component_1.ForecastComponent,
+            app_nav_component_1.AppNavComponent],
         bootstrap: [app_component_1.AppComponent],
     })
 ], AppModule);

@@ -1,22 +1,14 @@
-import { Component } from '@angular/core';
-import { CurrentWeatherComponent } from './components/CurrentWeather/currentWeather.component';
+import { Component  } from '@angular/core';
 
 @Component({
   moduleId: module.id,
   selector: 'my-app',
   templateUrl: 'app.component.html',
-  providers: [ CurrentWeatherComponent ]
+  providers: [ ]
   
 })
 export class AppComponent {
-  zip:number;
-  
-  constructor (
-    private currentWeather:CurrentWeatherComponent){};
+    
+  constructor (){}
 
-  onSubmit(){
-    let zipCode = this.zip;
-    console.log(zipCode)
-    this.currentWeather.getWeather(zipCode);
-  };
 }
