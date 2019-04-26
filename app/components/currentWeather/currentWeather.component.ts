@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
   moduleId: module.id,
   selector: 'current',
   templateUrl: 'currentWeather.component.html',
-  providers: [ WeatherService]
+  providers: [ WeatherService ]
 })
 
 export class CurrentWeatherComponent {
