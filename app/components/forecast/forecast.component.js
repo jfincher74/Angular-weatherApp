@@ -16,7 +16,6 @@ var ForecastComponent = (function () {
         this._weatherService = _weatherService;
         this.isLoading = new BehaviorSubject_1.BehaviorSubject(true);
     }
-    // *** TODO: Make zipcode persist by utilizing NG OnDestroy *** //
     ForecastComponent.prototype.getForecast = function () {
         var _this = this;
         this._weatherService.zipCode = this.zip;

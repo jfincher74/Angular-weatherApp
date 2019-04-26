@@ -12,9 +12,9 @@ var core_1 = require("@angular/core");
 var weather_service_1 = require("../../services/weather.service");
 var BehaviorSubject_1 = require("rxjs/BehaviorSubject");
 var CurrentWeatherComponent = (function () {
-    // *** TODO: Make zipcode persist by utilizing NG OnDestroy *** //
     function CurrentWeatherComponent(_weatherService) {
         this._weatherService = _weatherService;
+        this.zip = null;
         this.isLoading = new BehaviorSubject_1.BehaviorSubject(true);
     }
     CurrentWeatherComponent.prototype.getWeather = function () {
