@@ -1,21 +1,19 @@
 import { Component } from '@angular/core';
 import { WeatherService } from '../../services/weather.service';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject'
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
 
 @Component({
   moduleId: module.id,
   selector: 'current',
   templateUrl: 'currentWeather.component.html',
-  providers: [ WeatherService]
+  providers: [ WeatherService ]
 })
 
 export class CurrentWeatherComponent {
-  zip:number;
+  zip:number=null;
   weather:any;
-
   isLoading:BehaviorSubject<boolean> = new BehaviorSubject(true);
-
-  // *** TODO: Make zipcode persist by utilizing NG OnDestroy *** //
   
 constructor (private _weatherService: WeatherService) {   }
 

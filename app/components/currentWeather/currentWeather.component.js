@@ -14,6 +14,7 @@ var BehaviorSubject_1 = require("rxjs/BehaviorSubject");
 var CurrentWeatherComponent = (function () {
     function CurrentWeatherComponent(_weatherService) {
         this._weatherService = _weatherService;
+        this.zip = null;
         this.isLoading = new BehaviorSubject_1.BehaviorSubject(true);
     }
     CurrentWeatherComponent.prototype.getWeather = function () {

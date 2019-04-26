@@ -9,30 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var forecast_component_1 = require("../forecast/forecast.component");
-var currentWeather_component_1 = require("../currentWeather/currentWeather.component");
 var AppNavComponent = (function () {
-    function AppNavComponent(_forecast, _current) {
-        this._forecast = _forecast;
-        this._current = _current;
+    function AppNavComponent() {
     }
-    AppNavComponent.prototype.getWeather = function () {
-        this._current.getWeather();
-    };
-    AppNavComponent.prototype.getForecast = function () {
-        this._forecast.getForecast();
-    };
     return AppNavComponent;
 }());
 AppNavComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'app-nav',
-        templateUrl: 'app-nav.component.html',
-        providers: [forecast_component_1.ForecastComponent, currentWeather_component_1.CurrentWeatherComponent]
+        templateUrl: 'app-nav.component.html'
     }),
-    __metadata("design:paramtypes", [forecast_component_1.ForecastComponent,
-        currentWeather_component_1.CurrentWeatherComponent])
+    __metadata("design:paramtypes", [])
 ], AppNavComponent);
 exports.AppNavComponent = AppNavComponent;
 //# sourceMappingURL=app-nav.component.js.map
